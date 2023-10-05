@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_circuit">
+
+    <fragment
+        android:id="@+id/nav_circuit"
+        android:name="com.example.myapplication2.ui.home.circuitFragment"
+        android:label="@string/Circuit"
+        tools:layout="@layout/fragment_circuit" />
+
+    <fragment
+        android:id="@+id/navGraphs"
+        android:name="com.example.myapplication2.ui.cells.CellFragment"
+        android:label="@string/viewCells"
+        tools:layout="@layout/fragment_graphs" />
+
+    <fragment
+        android:id="@+id/navCells"
+        android:name="com.example.myapplication2.ui.graphs.graphsFragment"
+        android:label="@string/Graphs"
+        tools:layout="@layout/fragment_cells" />
+</navigation>
