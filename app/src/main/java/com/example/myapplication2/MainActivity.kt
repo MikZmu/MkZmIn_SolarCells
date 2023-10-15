@@ -1,8 +1,10 @@
 package com.example.myapplication2
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.Menu
+import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +14,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication2.databinding.ActivityMainBinding
 import com.example.solar_cells_v3.Matrix_Cell
 import com.example.solar_cells_v3.cellList
@@ -28,8 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,6 +39,12 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var cellList:cellList = cellList(this)
+
+
+
+
 
 
         setSupportActionBar(binding.appBarMain.toolbar)
@@ -57,12 +65,10 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        //viewModelFactory = MainActivityViewModelFactory(application)
+        //viewModel = ViewModelProvider(this, viewModelFactory).get(MainActivityViewModel::class.java)
     }
 
-    fun getAndPass():cellList{
-        var list:cellList = cellList(context = applicationContext)
-        return list
-    }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

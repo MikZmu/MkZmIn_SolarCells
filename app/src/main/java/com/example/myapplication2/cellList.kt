@@ -10,13 +10,12 @@ import java.lang.Exception
 class cellList (val context: Context, var cellList:ArrayList<Matrix_Cell> = getData(context)){
 
 
-    fun listCells():String{
-        var returnString:String = "";
-        for(i in cellList){
-            returnString += i.returnName();
+    fun listCells():ArrayList<String>{
+        var returnList:ArrayList<String> = ArrayList()
+        for(i in this.cellList){
+            returnList.add(i.returnName())
         }
-        return returnString
-
+        return returnList
     }
 
     fun getCell(cellName:String):Matrix_Cell{
