@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication2.databinding.FragmentCellsBinding
+import com.example.myapplication2.helper
 import com.example.solar_cells_v3.Matrix_Cell
 import com.example.solar_cells_v3.cellList
 import com.jjoe64.graphview.series.DataPoint
@@ -58,14 +59,14 @@ class CellFragment : Fragment() {
             listOfCells.setOnItemClickListener{ adapterView: AdapterView<*>, view2: View, i: Int, l: Long ->
                 var selected = listOfCells.getItemAtPosition(i).toString()
                 graph.removeAllSeries()
-                var series: LineGraphSeries<DataPoint?> = cVM.cl.getCell(selected).returnYAsDataPoints()
+                var series: LineGraphSeries<DataPoint?> = helper.cellList.getCell(selected).returnYAsDataPoints()
                 graph.addSeries(series)
                 series.setColor(Color.RED)
-                var UOC = Matrix_Cell.getUoc(cVM.cl.getCell(selected).xGridArray)
-                var ISC = Matrix_Cell.getIsc(cVM.cl.getCell(selected).yGridArray)
-                var MP = Matrix_Cell.getMp(cVM.cl.getCell(selected).normalisedXArray,cVM.cl.getCell(selected).yGridArray )
-                var UMP = Matrix_Cell.getUMp(cVM.cl.getCell(selected).normalisedXArray,cVM.cl.getCell(selected).yGridArray )
-                var IMP = Matrix_Cell.getIMp(cVM.cl.getCell(selected).normalisedXArray,cVM.cl.getCell(selected).yGridArray )
+                var UOC = Matrix_Cell.getUoc(helper.cellList.getCell(selected).xGridArray)
+                var ISC = Matrix_Cell.getIsc(helper.cellList.getCell(selected).yGridArray)
+                var MP = Matrix_Cell.getMp(helper.cellList.getCell(selected).normalisedXArray,cVM.cl.getCell(selected).yGridArray )
+                var UMP = Matrix_Cell.getUMp(helper.cellList.getCell(selected).normalisedXArray,cVM.cl.getCell(selected).yGridArray )
+                var IMP = Matrix_Cell.getIMp(helper.cellList.getCell(selected).normalisedXArray,cVM.cl.getCell(selected).yGridArray )
                 uoc.setText(String.format("Uoc = %.2f V", UOC))
                 isc.setText(String.format("Isc = %.2f A", ISC))
                 mp.setText(String.format("MP = %.2f W", MP))

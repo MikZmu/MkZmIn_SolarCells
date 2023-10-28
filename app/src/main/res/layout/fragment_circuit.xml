@@ -1,49 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.circuitFragment">
+    android:fillViewport="true"
+    android:tag = "sv"
+    >
 
-    <TextView
-        android:id="@+id/text_home"
+
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:tag ="sv2" >
 
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/graph"
-        android:layout_width="413dp"
-        android:layout_height="197dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/row"
+            android:tag="ll"
+            android:layout_gravity="center">
 
-    <ListView
-        android:id="@+id/cellList"
-        android:layout_width="141dp"
-        android:layout_height="184dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graph"
-        app:layout_constraintVertical_bias="0.19">
+            <include layout="@layout/column"
+                android:id="@+id/c0"
+                android:tag="c0"
+                >
+            </include>
 
-    </ListView>
+            <include layout="@layout/column"
+                android:id="@+id/c1"
+                android:tag="c1">
+            </include>
 
+            <include layout="@layout/column"
+                android:id="@+id/c2"
+                android:tag="c2">
+            </include>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <include layout="@layout/column"
+                android:id="@+id/c3"
+                android:tag="c3">
+            </include>
+
+            <include layout="@layout/column"
+                android:id="@+id/c4"
+                android:tag="c4">
+            </include>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+</ScrollView>

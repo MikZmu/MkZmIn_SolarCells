@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var cellList:cellList = cellList(this)
+        helper.cellList = cellList
+
+
 
 
 
